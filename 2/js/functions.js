@@ -1,9 +1,9 @@
-// eslint-disable-next-line no-unused-vars
-function lengthString(string,length){
-  return string.length < length;
+
+function lengthСomparison(sentence,length){
+  return sentence.length <= length;
 }
 
-// eslint-disable-next-line no-unused-vars
+
 function isPalindrome(word){
   word = word.toLowerCase().replaceAll(' ', '');
   const firstHalf = word.slice(0,Math.floor(word.length / 2) + 1);
@@ -11,8 +11,8 @@ function isPalindrome(word){
   return firstHalf === secondHalf.split('').reverse().join('');
 }
 
-// eslint-disable-next-line no-unused-vars
-function isNum(string){
 
-  return parseInt (string.match(/\d+/));
+function extractNumbers(string){
+  if(typeof string==='number') return  string;
+  else return string.replace(/[^0-9]/g,"");
 }
