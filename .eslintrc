@@ -1,4 +1,5 @@
-root: true
+root:
+  true
 
 parserOptions:
   ecmaVersion: 2022
@@ -16,7 +17,7 @@ extends:
   "htmlacademy/vanilla"
 
 
-  rules:
+rules:
   quotes: [1, "double", "avoid-escape"]
   no-unused-vars: warn
   no-console: warn

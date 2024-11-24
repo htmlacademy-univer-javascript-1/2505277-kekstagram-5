@@ -14,5 +14,8 @@ function isPalindrome(word){
 
 function extractNumbers(string){
   if(typeof string==='number') return  string;
-  else return string.replace(/[^0-9]/g,"");
+  else{
+   const numbers = string.match(/\d+/g);
+    return  numbers.map(Number).join('') ;
+}
 }
