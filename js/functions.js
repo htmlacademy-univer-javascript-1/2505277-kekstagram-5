@@ -13,13 +13,24 @@ function isPalindrome(word){
 
 
 function extractNumbers(string){
-  if(typeof string === 'string') {
-    if(Number(string.replace(/[^0-9]/g,""))){
-      return Number(string.replace(/[^0-9]/g,""));
-    }else{
-      return -1;
-    }
+  const replace = String(string).replace(/[^0-9]/g,"");
+  if(replace.length >= 1){
+    return Number(replace);
   }else{
-    return Number(String(string).replace(/[^0-9]/g,""));
+    return NaN;
   }
+
 }
+
+
+console.log(extractNumbers('2023 год'));
+console.log(extractNumbers('ECMAScript 2022'));
+console.log(extractNumbers('1 кефир, 0.5 батона'));
+console.log(extractNumbers('агент 007'));
+console.log(extractNumbers('а я томат'));
+console.log(extractNumbers(1));
+console.log(extractNumbers(-1.2223));
+console.log(extractNumbers(0));
+console.log(extractNumbers('0'));
+
+
