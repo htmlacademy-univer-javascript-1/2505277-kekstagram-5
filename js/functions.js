@@ -16,8 +16,7 @@ function extractNumbers(string){
   if(typeof string === 'string') {
     if(Number(string.replace(/[^0-9]/g,""))){
       return Number(string.replace(/[^0-9]/g,""));
-    }
-    else{
+    }else{
       return -1;
     }
   }else{
