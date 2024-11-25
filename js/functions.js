@@ -14,9 +14,13 @@ function isPalindrome(word){
 
 function extractNumbers(string){
   if(typeof string === 'number') {
-    return string;
+    if(!Number.isInteger(string)){
+      return Math.abs(string * 10);
+    }
+    return Math.abs(string);
   }else{
     const numbers = string.match(/\d+/g);
     return numbers.map(Number).join('') ;
   }
 }
+
