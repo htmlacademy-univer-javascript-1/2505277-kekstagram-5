@@ -15,7 +15,7 @@ function isPalindrome(word){
 function extractNumbers(string){
   if(typeof string === 'number') {
     if(!Number.isInteger(string)){
-      return Math.abs(string * 10);
+      return Math.abs(string * Math.pow(10,string.toString().match(/\.(\d+)/)?.[1].length));
     }
     return Math.abs(string);
   }else{
