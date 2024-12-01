@@ -60,13 +60,14 @@ const names = [
   "Егор",
   "Изольда",
 ];
+const maxLengthMessage = 2;
+const maxNumPhotos = 6;
 function createCommentsArray() {
   const commentaries = [];
-  const maxLengthMessage = 2;
   for (let i = 0; i < randomNum(0, 30); i++) {
     commentaries.push({
       id: i,
-      avatar: `img/avatar-${i}.svg`,
+      avatar: `img/avatar-${randomNum(1, maxNumPhotos)}.svg`,
       message: "",
       name: `${names[randomNum(0, names.length - 1)]}`,
     });
