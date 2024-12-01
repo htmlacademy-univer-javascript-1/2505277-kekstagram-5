@@ -1,4 +1,3 @@
-const usersArray = [];
 
 const descriptions = [
   "Солнечный закат и влюбленные в него",
@@ -39,50 +38,50 @@ const descriptions = [
 function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-function createCommentsArray() {
-  const photoDescriptions = [
-    "Всё отлично!",
-    "В целом всё неплохо. Но не всё.",
-    "Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.",
-    "Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.",
-    "Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.",
-    "Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!"
+const photoDescriptions = [
+  "Всё отлично!",
+  "В целом всё неплохо. Но не всё.",
+  "Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.",
+  "Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.",
+  "Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.",
+  "Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!"
 
-  ];
-  const names = [
-    "Артем",
-    "Виктор",
-    "Петр",
-    "Антонина",
-    "Кирилл",
-    "Валерия",
-    "Настя",
-    "Сеня",
-    "Макс",
-    "Егор",
-    "Изольда",
-  ];
+];
+const names = [
+  "Артем",
+  "Виктор",
+  "Петр",
+  "Антонина",
+  "Кирилл",
+  "Валерия",
+  "Настя",
+  "Сеня",
+  "Макс",
+  "Егор",
+  "Изольда",
+];
+const maxLengthMessage = 2;
+const maxNumPhotos = 6;
+function createCommentsArray() {
   const commentaries = [];
   for (let i = 0; i < randomNum(0, 30); i++) {
-    if (randomNum(1, 2) === 1){
-      commentaries.push({
-        id: i,
-        avatar: `img/avatar-${i}.svg`,
-        message: `${photoDescriptions[randomNum(0, photoDescriptions.length - 1)]}`,
-        name: `${names[randomNum(0, names.length - 1)]}`,
-      });
-    }else{
-      commentaries.push({
-        id: i,
-        avatar: `img/avatar-${i}.svg`,
-        message: `${photoDescriptions[randomNum(0, photoDescriptions.length - 1)]} ${photoDescriptions[randomNum(0, photoDescriptions.length - 1)]}`,
-        name: `${names[randomNum(0, names.length - 1)]}`,
-      });
+    commentaries.push({
+      id: i,
+      avatar: `img/avatar-${randomNum(1, maxNumPhotos)}.svg`,
+      message: "",
+      name: `${names[randomNum(0, names.length - 1)]}`,
+    });
+    for(let j = 0; j < randomNum(1, maxLengthMessage);j++){
+      commentaries[i].message += photoDescriptions[randomNum(0,photoDescriptions.length - 1)];
     }
   }
+
   return commentaries;
 }
-function createUsersArray() {
+
+
+function arrayPhotoParametrs() {
+  const usersArray = [];
   for (let i = 1; i <= 25; i++) {
     usersArray.push({
       id: i,
@@ -95,4 +94,4 @@ function createUsersArray() {
   return usersArray;
 }
 
-console.log(createUsersArray());
+console.log(arrayPhotoParametrs());
