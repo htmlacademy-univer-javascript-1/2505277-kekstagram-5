@@ -80,7 +80,7 @@ function createCommentsArray() {
 }
 
 
-function createUsersArray() {
+function arrayPhotoParametrs() {
   const usersArray = [];
   for (let i = 1; i <= 25; i++) {
     usersArray.push({
@@ -94,4 +94,4 @@ function createUsersArray() {
   return usersArray;
 }
 
-console.log(createUsersArray());
+console.log(arrayPhotoParametrs());
