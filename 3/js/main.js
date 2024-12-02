@@ -38,7 +38,7 @@ const descriptions = [
 function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-const photoDescriptions = [
+const MESSAGE_FOR_COMMENTS = [
   "Всё отлично!",
   "В целом всё неплохо. Но не всё.",
   "Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.",
@@ -60,19 +60,22 @@ const names = [
   "Егор",
   "Изольда",
 ];
-const maxLengthMessage = 2;
-const maxNumPhotos = 6;
+const MAX_LENGTH_MESSAGE = 2;
+const MAX_NUM_PHOTOS = 6;
 function createCommentsArray() {
   const commentaries = [];
   for (let i = 0; i < randomNum(0, 30); i++) {
     commentaries.push({
       id: i,
-      avatar: `img/avatar-${randomNum(1, maxNumPhotos)}.svg`,
+      avatar: `img/avatar-${randomNum(1, MAX_NUM_PHOTOS)}.svg`,
       message: "",
       name: `${names[randomNum(0, names.length - 1)]}`,
     });
-    for(let j = 0; j < randomNum(1, maxLengthMessage);j++){
-      commentaries[i].message += photoDescriptions[randomNum(0,photoDescriptions.length - 1)];
+    for(let j = 0; j < randomNum(1, MAX_LENGTH_MESSAGE);j++){
+      if(j >= 1){
+        commentaries[i].message += "\n";
+      }
+      commentaries[i].message += MESSAGE_FOR_COMMENTS[randomNum(0,MESSAGE_FOR_COMMENTS.length - 1)];
     }
   }
 
@@ -80,18 +83,19 @@ function createCommentsArray() {
 }
 
 
-function arrayPhotoParametrs() {
-  const usersArray = [];
-  for (let i = 1; i <= 25; i++) {
-    usersArray.push({
+function createPhotoParametrsArray() {
+  const USERS_ARRAY = [];
+  const USERS_ARRAY_LENGTH = 25;
+  for (let i = 1; i <= USERS_ARRAY_LENGTH ; i++) {
+    USERS_ARRAY.push({
       id: i,
       url: `photos/${i}.jpg`,
-      description: `${descriptions[randomNum(0, 25)]}`,
+      description: `${descriptions[randomNum(0, USERS_ARRAY_LENGTH)]}`,
       likes: randomNum(15, 200),
       comments: createCommentsArray(),
     });
   }
-  return usersArray;
+  return USERS_ARRAY;
 }
 
-console.log(arrayPhotoParametrs());
+console.log(createPhotoParametrsArray());
