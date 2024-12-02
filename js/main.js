@@ -38,7 +38,7 @@ const descriptions = [
 function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-const MESSAGE_FOR_COMMENTS = [
+const messageForComments = [
   "Всё отлично!",
   "В целом всё неплохо. Но не всё.",
   "Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.",
@@ -62,6 +62,7 @@ const names = [
 ];
 const MAX_LENGTH_MESSAGE = 2;
 const MAX_NUM_PHOTOS = 6;
+const USERS_ARRAY_LENGTH = 25;
 function createCommentsArray() {
   const commentaries = [];
   for (let i = 0; i < randomNum(0, 30); i++) {
@@ -75,7 +76,7 @@ function createCommentsArray() {
       if(j >= 1){
         commentaries[i].message += "\n";
       }
-      commentaries[i].message += MESSAGE_FOR_COMMENTS[randomNum(0,MESSAGE_FOR_COMMENTS.length - 1)];
+      commentaries[i].message += messageForComments[randomNum(0,messageForComments.length - 1)];
     }
   }
 
@@ -84,10 +85,9 @@ function createCommentsArray() {
 
 
 function createPhotoParametrsArray() {
-  const USERS_ARRAY = [];
-  const USERS_ARRAY_LENGTH = 25;
+  const usersArray = [];
   for (let i = 1; i <= USERS_ARRAY_LENGTH ; i++) {
-    USERS_ARRAY.push({
+    usersArray.push({
       id: i,
       url: `photos/${i}.jpg`,
       description: `${descriptions[randomNum(0, USERS_ARRAY_LENGTH)]}`,
@@ -95,7 +95,7 @@ function createPhotoParametrsArray() {
       comments: createCommentsArray(),
     });
   }
-  return USERS_ARRAY;
+  return usersArray;
 }
 
 console.log(createPhotoParametrsArray());
