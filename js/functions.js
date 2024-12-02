@@ -21,16 +21,3 @@ function extractNumbers(string){
   }
 
 }
-
-
-console.log(extractNumbers('2023 год'));
-console.log(extractNumbers('ECMAScript 2022'));
-console.log(extractNumbers('1 кефир, 0.5 батона'));
-console.log(extractNumbers('агент 007'));
-console.log(extractNumbers('а я томат'));
-console.log(extractNumbers(1));
-console.log(extractNumbers(-1.2223));
-console.log(extractNumbers(0));
-console.log(extractNumbers('0'));
-
-
