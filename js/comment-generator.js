@@ -1,28 +1,5 @@
-import {randomNum} from "./random-num.js";
-const MAX_LENGTH_MESSAGE = 2;
-const MAX_NUM_PHOTOS = 6;
-const messageForComments = [
-  "Всё отлично!",
-  "В целом всё неплохо. Но не всё.",
-  "Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.",
-  "Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.",
-  "Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.",
-  "Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!"
-
-];
-const names = [
-  "Артем",
-  "Виктор",
-  "Петр",
-  "Антонина",
-  "Кирилл",
-  "Валерия",
-  "Настя",
-  "Сеня",
-  "Макс",
-  "Егор",
-  "Изольда",
-];
+import{MAX_LENGTH_MESSAGE,MAX_NUM_PHOTOS,messageForComments,names} from "./constants.js";
+import{randomNum} from "./utils.js";
 function createCommentsArray() {
   const commentaries = [];
   for (let i = 0; i < randomNum(0, 30); i++) {
@@ -42,4 +19,4 @@ function createCommentsArray() {
 
   return commentaries;
 }
-export{createCommentsArray};
+export {createCommentsArray};
