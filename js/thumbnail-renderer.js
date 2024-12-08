@@ -1,27 +1,27 @@
 import {createPhotoParametrsArray} from "./photo-data-generator.js";
-import{USERS_ARRAY_LENGTH} from "./constants.js";
 
-const usersArray = createPhotoParametrsArray();
+function creatingMiniatures(){
+  const photoDescriptionArray = createPhotoParametrsArray();
+  const pictures = document.querySelector(".pictures");
+  const templateFragment = document.querySelector("#picture").content;
+  const template = templateFragment.querySelector("a");
+  const fragment = document.createDocumentFragment();
 
-const pictures = document.querySelectorAll(".pictures");
-const templateFragment = document.querySelector("#picture").content;
+  for (let i = 0; i < photoDescriptionArray.length; i++) {
+    const CURRENT_ELEMENT = photoDescriptionArray[i];
+    const element = template.cloneNode(true);
+    const image = element.querySelector(".picture__img");
+    image.src = CURRENT_ELEMENT.url;
+    image.alt = CURRENT_ELEMENT.description;
 
-const template = templateFragment.querySelector("a");
-const fragment = document.createDocumentFragment();
+    element.querySelector(".picture__comments").textContent = CURRENT_ELEMENT.comments.length;
+    element.querySelector(".picture__likes").textContent = CURRENT_ELEMENT.likes;
 
+    fragment.appendChild(element);
+  }
 
-for (let i = 0; i < USERS_ARRAY_LENGTH; i++) {
-  const element = template.cloneNode(true);
-
-  element.querySelector(".picture__img").src = usersArray[i].url;
-  element.querySelector(".picture__img").alt = usersArray[i].description;
-
-  element.querySelector(".picture__comments").textContent = usersArray[i].comments.length;
-  element.querySelector(".picture__likes").textContent = usersArray[i].description.length;
-
-  fragment.appendChild(element);
-
+  pictures.appendChild(fragment);
+  return pictures;
 }
 
-pictures[0].appendChild(fragment);
-
+export {creatingMiniatures};
