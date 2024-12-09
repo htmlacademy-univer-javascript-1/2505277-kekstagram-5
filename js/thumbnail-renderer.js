@@ -8,14 +8,14 @@ function creatingMiniatures(){
   const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < photoDescriptionArray.length; i++) {
-    const CURRENT_ELEMENT = photoDescriptionArray[i];
+    const [comments,likes,url,description] = [photoDescriptionArray[i].comments,photoDescriptionArray[i].likes,photoDescriptionArray[i].url,photoDescriptionArray[i].description];
     const element = template.cloneNode(true);
     const image = element.querySelector(".picture__img");
-    image.src = CURRENT_ELEMENT.url;
-    image.alt = CURRENT_ELEMENT.description;
+    image.src = url;
+    image.alt = description;
 
-    element.querySelector(".picture__comments").textContent = CURRENT_ELEMENT.comments.length;
-    element.querySelector(".picture__likes").textContent = CURRENT_ELEMENT.likes;
+    element.querySelector(".picture__comments").textContent = comments.length;
+    element.querySelector(".picture__likes").textContent = likes;
 
     fragment.appendChild(element);
   }
