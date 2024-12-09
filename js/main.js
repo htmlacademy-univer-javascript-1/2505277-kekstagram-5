@@ -1,3 +1,5 @@
-import {createPhotoParametrsArray} from "./photo-data-generator.js";
 
-console.log(createPhotoParametrsArray());
+import {creatingMiniatures} from "./thumbnail-renderer.js";
+
+console.log(creatingMiniatures());
+
