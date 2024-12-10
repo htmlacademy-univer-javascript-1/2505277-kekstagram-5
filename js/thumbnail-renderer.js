@@ -8,7 +8,7 @@ function creatingMiniatures(){
   const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < photoDescriptionArray.length; i++) {
-    const [comments,likes,url,description] = [photoDescriptionArray[i].comments,photoDescriptionArray[i].likes,photoDescriptionArray[i].url,photoDescriptionArray[i].description];
+    const {comments,likes,url,description} = photoDescriptionArray[i];
     const element = template.cloneNode(true);
     const image = element.querySelector(".picture__img");
     image.src = url;
