@@ -1,5 +1,5 @@
 import {createPhotoParametrsArray} from "./photo-data-generator.js";
-
+import {openBigPicture,closeBigPicture} from "./rendering-fullsize-window.js";
 function creatingMiniatures(){
   const photoDescriptionArray = createPhotoParametrsArray();
   const pictures = document.querySelector(".pictures");
@@ -18,6 +18,11 @@ function creatingMiniatures(){
     element.querySelector(".picture__likes").textContent = likes;
 
     fragment.appendChild(element);
+    element.addEventListener("click", (evt) =>{
+      evt.preventDefault();
+      closeBigPicture();
+      openBigPicture(url, description, comments, likes);
+    });
   }
 
   pictures.appendChild(fragment);
