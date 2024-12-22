@@ -85,6 +85,52 @@ function formValidation(){
     "Комментарий должен содержать не более 140 символов"
   );
 
+  const inHashtags = uploadForm.querySelector(".text__hashtags");
+
+  function validateHashtags () {
+    // return checkHashtagPresence() && verifyHashtagUniqueness();
+    return checkHashtagPresence() && verifyHashtagUniqueness();
+  }
+
+
+  /**
+ * Проверяет, содержит ли каждый элемент массива хэштег.
+ *
+ * @returns {boolean} - true, если все элементы массива имеют символ хэштега в начале,
+ *                      иначе false.
+ */
+  function checkHashtagPresence () {
+    const arr = inHashtags.value.split(" ");
+    return arr.every((elem) => elem[0] === "#");
+  }
+
+  function verifyHashtagUniqueness () {
+    const arr = inHashtags.value.split(" ");
+
+    const result = arr.reduce((acc, item) => {
+      item = item.toLowerCase();
+      if (acc.includes(item)) {
+        return acc;
+      }
+      return [...acc, item];
+    }, []);
+    // console.log(arr);
+    // console.log(result);
+    return result.length === arr.length;
+  }
+
+  function getErrorMessage () {
+    if(!checkHashtagPresence()){
+      return "Каждый хэштэг должен начинаться с символа '#' ";
+    }else if(!verifyHashtagUniqueness()) {
+      return "Навание каждого хэштега должно быть уникальным при условии нечувствительности к регистру.";
+    }
+    else{
+      return "Навание каждого хэштега должно быть уникальным при условии нечувствительности к регистру.Каждый хэштэг должен начинаться с символа '#'.";
+    }
+  }
+
+  pristine.addValidator(inHashtags, validateHashtags, getErrorMessage);
 
   uploadForm.onsubmit = function(evt) {
     evt.preventDefault();
