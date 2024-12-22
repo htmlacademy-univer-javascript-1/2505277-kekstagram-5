@@ -60,4 +60,5 @@ const names = [
   "Егор",
   "Изольда",
 ];
-export{USERS_ARRAY_LENGTH,MAX_LENGTH_MESSAGE,MAX_NUM_PHOTOS,messageForComments,names,descriptions};
+const body = document.body;
+export{USERS_ARRAY_LENGTH,MAX_LENGTH_MESSAGE,MAX_NUM_PHOTOS,messageForComments,names,descriptions,body};

@@ -1,6 +1,4 @@
-
-
-const body = document.body;
+import {body} from "./constants.js";
 const commentList = document.querySelector(".social__comments");
 const pictureFullSize = document.querySelector(".big-picture");
 const bigPictureCancel = document.querySelector(".big-picture__cancel");
