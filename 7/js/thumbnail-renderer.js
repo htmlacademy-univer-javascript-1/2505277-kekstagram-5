@@ -20,7 +20,9 @@ function creatingMiniatures(){
     fragment.appendChild(element);
     element.addEventListener("click", (evt) =>{
       evt.preventDefault();
+
       openBigPicture(url, description, comments, likes);
+
     });
   }
 
