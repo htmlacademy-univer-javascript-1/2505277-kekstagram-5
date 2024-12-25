@@ -7,6 +7,7 @@ const bigPictureCancel = document.querySelector(".big-picture__cancel");
 const quantityComments = document.querySelector(".social__comment-count");
 const loaderComments = document.querySelector(".social__comments-loader");
 let currentIndex = 0;
+
 let storeComments = [];
 
 function openBigPicture(url, description, comments, likes){
@@ -82,6 +83,7 @@ function checkAllCommentsDisplayed (){
   if(currentIndex >= storeComments.length){
     loaderComments.classList.add("hidden");
     loaderComments.removeEventListener("click", displayMoreComments);
+
   }
 }
 function refreshCommentStats(){
