@@ -1,11 +1,13 @@
-import {body} from "./constants.js";
+import{DEFAULT_COMMENT_LIMIT} from "./constants.js";
+
+const body = document.body;
 const commentList = document.querySelector(".social__comments");
 const pictureFullSize = document.querySelector(".big-picture");
 const bigPictureCancel = document.querySelector(".big-picture__cancel");
 const quantityComments = document.querySelector(".social__comment-count");
 const loaderComments = document.querySelector(".social__comments-loader");
 let currentIndex = 0;
-const DEFAULT_COMMENT_LIMIT = 5;
+
 let storeComments = [];
 
 function openBigPicture(url, description, comments, likes){
@@ -80,6 +82,8 @@ function displayMoreComments() {
 function checkAllCommentsDisplayed (){
   if(currentIndex >= storeComments.length){
     loaderComments.classList.add("hidden");
+    loaderComments.removeEventListener("click", displayMoreComments);
+
   }
 }
 function refreshCommentStats(){
