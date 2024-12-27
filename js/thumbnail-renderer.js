@@ -1,14 +1,14 @@
-import {createPhotoParametrsArray} from "./photo-data-generator.js";
 import {openBigPicture} from "./rendering-fullsize-window.js";
-function creatingMiniatures(){
-  const photoDescriptionArray = createPhotoParametrsArray();
+
+const creatingMiniatures = (miniatures) =>{
+
   const pictures = document.querySelector(".pictures");
   const templateFragment = document.querySelector("#picture").content;
   const template = templateFragment.querySelector("a");
   const fragment = document.createDocumentFragment();
 
-  for (let i = 0; i < photoDescriptionArray.length; i++) {
-    const {comments,likes,url,description} = photoDescriptionArray[i];
+  for (let i = 0; i < miniatures.length; i++) {
+    const {comments,likes,url,description} = miniatures[i];
     const element = template.cloneNode(true);
     const image = element.querySelector(".picture__img");
     image.src = url;
@@ -28,6 +28,6 @@ function creatingMiniatures(){
 
   pictures.appendChild(fragment);
   return pictures;
-}
+};
 
 export {creatingMiniatures};

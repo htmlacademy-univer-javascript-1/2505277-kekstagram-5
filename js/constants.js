@@ -61,4 +61,5 @@ const names = [
   "Изольда",
 ];
 const DEFAULT_COMMENT_LIMIT = 5;
-export{USERS_ARRAY_LENGTH,MAX_LENGTH_MESSAGE,MAX_NUM_PHOTOS,messageForComments,names,descriptions,DEFAULT_COMMENT_LIMIT};
+const ALERT_SHOW_TIME = 5000;
+export{ ALERT_SHOW_TIME,USERS_ARRAY_LENGTH,MAX_LENGTH_MESSAGE,MAX_NUM_PHOTOS,messageForComments,names,descriptions,DEFAULT_COMMENT_LIMIT};
