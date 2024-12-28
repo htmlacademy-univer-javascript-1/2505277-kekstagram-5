@@ -17,6 +17,7 @@ const showAlert = () =>{
   document.addEventListener("keydown", closeByKey);
   const template = document.querySelector("#error");
 
+
   const item = template.content.cloneNode(true);
   const tryButton = item.querySelector(".error__button");
   alertContainer.append(item);
@@ -24,7 +25,7 @@ const showAlert = () =>{
   document.body.append(alertContainer);
   tryButton.addEventListener("click", closeMessageWindow);
   document.addEventListener("mouseup", (e) => {
-    if (!container.contains(e.target)) {
+    if ((e.target)) {
       closeMessageWindow();
     }
   });
@@ -42,7 +43,7 @@ const showSuccess = () =>{
   successButton.addEventListener("click", closeMessageWindow);
 
   document.addEventListener("mouseup", (e) => {
-    if (!container.contains(e.target)) {
+    if ((e.target)) {
       closeMessageWindow();
     }
   });
