@@ -3,8 +3,8 @@ import{showAlert,showSuccess} from "./utils.js";
 
 const BASE_URL = "https://29.javascript.htmlacademy.pro/kekstagram";
 const Route = {
-  GET_DATA: '/data',
-  SEND_DATA: '',
+  GET_DATA: "/data",
+  SEND_DATA: "",
 };
 
 const getData = () => fetch(
