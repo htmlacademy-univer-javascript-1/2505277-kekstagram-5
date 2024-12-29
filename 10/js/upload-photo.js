@@ -1,4 +1,5 @@
 import{formValidation} from "./validation-form.js";
+import {setUserFormSubmit} from "./validation-form.js";
 
 const body = document.body;
 const uploadImg = document.querySelector(".img-upload__overlay");
@@ -34,6 +35,7 @@ function displayPhotoEditPreview(){
     body.classList.add("modal-open");
 
     formValidation();
+    setUserFormSubmit(closeImageEditor);
   });
 }
 

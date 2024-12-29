@@ -62,4 +62,6 @@ const names = [
 ];
 const DEFAULT_COMMENT_LIMIT = 5;
 const ALERT_SHOW_TIME = 5000;
-export{ ALERT_SHOW_TIME,USERS_ARRAY_LENGTH,MAX_LENGTH_MESSAGE,MAX_NUM_PHOTOS,messageForComments,names,descriptions,DEFAULT_COMMENT_LIMIT};
+const BASE_URL = "https://29.javascript.htmlacademy.pro/kekstagram";
+
+export{BASE_URL,ALERT_SHOW_TIME,USERS_ARRAY_LENGTH,MAX_LENGTH_MESSAGE,MAX_NUM_PHOTOS,messageForComments,names,descriptions,DEFAULT_COMMENT_LIMIT};

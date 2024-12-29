@@ -1,7 +1,7 @@
 
 import{showAlert,showSuccess} from "./utils.js";
+import{BASE_URL} from "./constants.js";
 
-const BASE_URL = "https://29.javascript.htmlacademy.pro/kekstagram";
 const Route = {
   GET_DATA: "/data",
   SEND_DATA: "",
@@ -21,12 +21,8 @@ const sendData = (body) => fetch(
 ) .then((response) => {
   if (response.ok) {
     showSuccess();
-    // document.removeEventListener("keydown", closeByKey);
-    // successButton.addEventListener("click", closeMessageWindow);
   } else {
     showAlert();
-    // document.removeEventListener("keydown", closeByKey);
-    // tryButton.addEventListener("click", closeMessageWindow);
   }
 }).catch(() => {
   showAlert();
