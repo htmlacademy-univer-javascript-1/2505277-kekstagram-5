@@ -1,8 +1,15 @@
 
 import {creatingMiniatures} from "./thumbnail-renderer.js";
-import {displayPhotoEditPreview} from "./upload-photo.js";
+import {displayPhotoEditPreview,closeImageEditor} from "./upload-photo.js";
 
 
-creatingMiniatures();
+import {getData} from "./api.js";
+
 displayPhotoEditPreview ();
+getData()
+  .then((miniatures) => {
+    creatingMiniatures(miniatures);
+
+  });
+
 
